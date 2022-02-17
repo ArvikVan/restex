@@ -1,3 +1,4 @@
+[![CI](https://github.com/ArvikVan/restex/actions/workflows/Createmain.yml/badge.svg?branch=master)](https://github.com/ArvikVan/restex/actions/workflows/Createmain.yml)
 ## restex
 
 ### Контакты для связи<br>
