@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import rest.entity.Employee;
+import rest.repository.EmployeeRepository;
 import rest.service.EmployeeService;
 
 import java.util.List;
@@ -19,11 +20,11 @@ import java.util.List;
 @RequestMapping("/api")
 public class MyRestController {
     @Autowired
-    private EmployeeService employeeService;
+    private EmployeeRepository employeeService;
 
     @GetMapping("/employees")
     public List<Employee> showAllEmployee() {
-        List<Employee> allEmployees = employeeService.getEmployeeList();
+        List<Employee> allEmployees = (List<Employee>) employeeService.findAll();
         return allEmployees;
     }
 }

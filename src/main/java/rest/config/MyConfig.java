@@ -19,10 +19,10 @@ import java.util.Properties;
  * @version 1.0
  * @since 17.02.2022
  */
-@Configuration
+/*@Configuration
 @ComponentScan(basePackages = "rest")
 @EnableWebMvc
-@EnableTransactionManagement
+@EnableTransactionManagement*/
 public class MyConfig {
     @Bean
     public DataSource dataSource() {
