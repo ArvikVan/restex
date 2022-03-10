@@ -16,15 +16,15 @@ import java.util.List;
  * @version 1.0
  * @since 17.02.2022
  */
-@RestController
+@RestController/*управляем запросами и ответами*/
 @RequestMapping("/api")
 public class MyRestController {
     @Autowired
-    private EmployeeRepository employeeService;
+    private EmployeeService employeeService;
 
-    @GetMapping("/employees")
-    public List<Employee> showAllEmployee() {
-        List<Employee> allEmployees = (List<Employee>) employeeService.findAll();
+    @GetMapping("/employees")/*используем гет метод*/
+    public List<Employee> showAllEmployees() {
+        List<Employee> allEmployees = employeeService.getAllEmployees();
         return allEmployees;
     }
 }

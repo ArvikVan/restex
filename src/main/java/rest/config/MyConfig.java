@@ -19,17 +19,17 @@ import java.util.Properties;
  * @version 1.0
  * @since 17.02.2022
  */
-/*@Configuration
-@ComponentScan(basePackages = "rest")
+@Configuration
+@ComponentScan(basePackages = "rest")/*передаем пакет к скану*/
 @EnableWebMvc
-@EnableTransactionManagement*/
+@EnableTransactionManagement
 public class MyConfig {
     @Bean
     public DataSource dataSource() {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
         try {
             dataSource.setDriverClass("org.postgresql.Driver");
-            dataSource.setJdbcUrl("jdbc:postgresql://127.0.0.1:5432/restex");
+            dataSource.setJdbcUrl("jdbc:postgresql://127.0.0.1:5432/mvchibernateaop");
             dataSource.setUser("postgres");
             dataSource.setPassword("Arvijka");
         } catch (PropertyVetoException e) {
@@ -42,13 +42,13 @@ public class MyConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean localSessionFactory = new LocalSessionFactoryBean();
         localSessionFactory.setDataSource(dataSource());
-        sessionFactory().setPackagesToScan("rest.entity");
+        localSessionFactory.setPackagesToScan("rest.entity");
         Properties hibernateProperties = new Properties();
         hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL10Dialect");
         hibernateProperties.setProperty("hibernate.show_sql", "true");
 
-        sessionFactory().setHibernateProperties(hibernateProperties);
-        return sessionFactory();
+        localSessionFactory.setHibernateProperties(hibernateProperties);
+        return localSessionFactory;
     }
 
     @Bean

@@ -1,22 +1,17 @@
 package rest.service;
 
-import org.springframework.stereotype.Service;
-import rest.dao.EmployeeDAO;
 import rest.entity.Employee;
-import rest.repository.EmployeeRepository;
 
 import java.util.List;
 
 /**
  * @author ArvikV
  * @version 1.0
- * @since 18.02.2022
+ * @since 26.02.2022
  */
-@Service
-public class EmployeeService {
-    private EmployeeDAO employeeDAO;
-
-    public List<Employee> getEmployeeList() {
-        return  employeeDAO.getAllEmployees();
-    }
+public interface EmployeeService {
+    public List<Employee> getAllEmployees();
+    public void saveEmployee(Employee employee);
+    public Employee getEmployee(int id);
+    public void deleteEmployee(int id);
 }
