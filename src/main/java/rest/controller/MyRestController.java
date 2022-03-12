@@ -46,4 +46,16 @@ public class MyRestController {
         employeeService.saveEmployee(employee);
         return employee;
     }
+
+    /**
+     * получаем жаваобъект который жсонов в ответе приходит
+     * @param employee что на входе
+     * @return на выходе жава объект
+     * PutMapping связывает запрос с методом контроллера
+     */
+    @PutMapping("/employees")
+    public Employee updateEmployee(@RequestBody Employee employee) {
+        employeeService.saveEmployee(employee);
+        return employee;
+    }
 }
