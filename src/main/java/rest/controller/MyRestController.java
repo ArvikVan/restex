@@ -1,10 +1,7 @@
 package rest.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import rest.entity.Employee;
 import rest.exception.NoEmployeeException;
 import rest.service.EmployeeService;
@@ -34,6 +31,19 @@ public class MyRestController {
         if (employee == null) {
             throw new NoEmployeeException("No employee with id " + id + " in DB");
         }
+        return employee;
+    }
+
+    /**
+     * прокидываем жсон в теле запроса с помощью постмаппинга
+     * @param employee емплои который надо добавить
+     * @return на выходе добавленый емплои
+     * PostMapping связывает хттп запрос с методом контроллера
+     * RequestBody связывает тело метода с параметром метода контроллера
+     */
+    @PostMapping("/employees")
+    public Employee addEmployee(@RequestBody Employee employee) {
+        employeeService.saveEmployee(employee);
         return employee;
     }
 }
