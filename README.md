@@ -1,6 +1,6 @@
 [![CI](https://github.com/ArvikVan/restex/actions/workflows/Createmain.yml/badge.svg?branch=master)](https://github.com/ArvikVan/restex/actions/workflows/Createmain.yml)
 ## restex
-работа с джсонами, обработкой исключений
+работа с джсонами, обработкой исключений ы качестве рест-сервиса, в качестве рест-клиента выступает репо [rest-client](https://github.com/ArvikVan/restprocess)
 <br> выход за переделы имеющихся значений в бд
 ![](img/1.png)
 <br> список полный из бд
