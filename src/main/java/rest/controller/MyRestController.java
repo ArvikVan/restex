@@ -52,10 +52,27 @@ public class MyRestController {
      * @param employee что на входе
      * @return на выходе жава объект
      * PutMapping связывает запрос с методом контроллера
+     * Емплои помтоу что возвращаем емплои
      */
     @PutMapping("/employees")
     public Employee updateEmployee(@RequestBody Employee employee) {
         employeeService.saveEmployee(employee);
         return employee;
+    }
+
+    /**
+     * удаляем емплои
+     * @param id ид по которому удалять будем
+     * @return на выходе текст об удалении
+     * String потому что возвращаем текст
+     */
+    @DeleteMapping("/employees/{id}")
+    public String deleteEmloyee(@PathVariable int id) {
+        Employee employee = employeeService.getEmployee(id);
+        if (employee == null) {
+            throw new NoEmployeeException("No employee with id " + id + " in DB");
+        }
+        employeeService.deleteEmployee(id);
+        return  "Employee with id " + id + " delete.";
     }
 }
